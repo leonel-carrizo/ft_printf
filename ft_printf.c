@@ -6,7 +6,7 @@
 /*   By: lcarrizo <lcarrizo@student.42london.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:19:57 by lcarrizo          #+#    #+#             */
-/*   Updated: 2024/01/29 14:09:03 by lcarrizo         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:32:29 by lcarrizo          ###   ##london.com     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,33 @@
 
 int	ft_printf(cont char *format, ...)
 {
-	// Handling variable arguments. (macro)
+	// Handling variable arguments. (macros)
 	va_list args;
 	int	nprinted;
+	int	i;
 
 	nprinted = 0;
+	i = 0;
 	va_start(args, format);
-	nprinted = va_arg(args, int);
 	// handling differents types of formats specifiers.
+	while (*format)
+	{
+		if (*format == '%' && *(format) + 1 != '%')
+		{
+			//manage decimal
+			nprinted += va_args()
+		}
+		format++;
+		i++;
+	}
 	
-
 	// return number of characters printed.
 	va_end(args);
 	return (nprinted);
 }
 
 /*
-
+ft_printf("char %c, string %s, numero %d", Char, string, decimal);
 RETURN VALUES:
 if succes:
 	Return number of characters printed excludin '\0'
