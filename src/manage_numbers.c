@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   manage_numbers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcarrizo <lcarrizo@student.42london.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 12:17:10 by lcarrizo          #+#    #+#             */
-/*   Updated: 2024/01/29 10:49:55 by lcarrizo         ###   ########.fr       */
+/*   Created: 2024/01/30 13:30:40 by lcarrizo          #+#    #+#             */
+/*   Updated: 2024/01/30 22:19:36 by lcarrizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/ft_printf.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
+int	ft_putnumber(long nbr)
+{
+	int	n;
 
-// delete before submit
-# include <stdio.h>
-
-int	ft_printf(const char *format, ...);
-
-#endif
+	n = 0;
+	if (nbr < 0)
+	{
+		write(1, "-", 1);
+		
+	}
+	return(n);
+}
