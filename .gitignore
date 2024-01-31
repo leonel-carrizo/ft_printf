@@ -54,3 +54,6 @@ dkms.conf
 # OTHERS
 *.nfs*
 *.swp*
+*tester*
+*Tester*
+*francinette*
