@@ -6,7 +6,7 @@
 /*   By: lcarrizo <lcarrizo@student.42london.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:19:57 by lcarrizo          #+#    #+#             */
-/*   Updated: 2024/01/30 22:16:57 by lcarrizo         ###   ########.fr       */
+/*   Updated: 2024/01/31 13:11:01 by lcarrizo          ###   ##london.com     */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,18 @@ static int	ft_check_format(char format, va_list args)
 		return (ft_putchar(va_arg(args, int)));
 	else if (format == 's')
 		return (ft_putstr(va_arg(args, char *)));
-	else if (format == 'd')
-		 return (ft_putnumber(va_arg(args, int)));
+	else if (format == 'd' || format == 'i')
+		 return (ft_putnumber((long)va_arg(args, int)));
 	else if (format == 'u')
-		return 0;
-	else if (format == 'i')
-		return 0;
+		return (ft_putnumber((long)va_arg(args, unsigned int)));
 	else if (format == 'x')
-		return 0;
+		return 0; //(ft_printhexa(va_arg(args, )));
 	else if (format == 'X')
 		return 0;
 	else if (format == 'p')
 		return 0;
 	else if (format == '%')
-		return (write(1, "%", 1));
+		return (ft_putchar('%'));
 	else
 		return (-1);
 }
@@ -67,18 +65,21 @@ int	main(void)
 {
 	int	i;
 	int	j;
-	char	cha;
-	char	*word;
-	int	n;
+	// char	cha;
+	// char	*word;
+	int	n,m;
 
 	i = 0;
 	j = 0;
-	word = "How are you";
-	n = INT_MIN;
-	cha = 'W';
-	i = ft_printf("F: \%\% Hello %% cruel %% world:\n%c\n%s\n%d\n", cha, word, n);
-	j = printf("C: \%\% Hello %% cruel %% world:\n%c\n%s\n%d\n", cha, word, n);
-	printf("C: %d\nFT:%d\n", j, i);
+	// word = "How are you";
+	// cha = 'W';
+	n = 15;
+	if (n)
+		n = 0; 
+	m = 1;
+	i = ft_printf("F=  %x\n", m);
+	j =    printf("C=  %x\n", m);
+	printf("C print:%d\nFT print:%d\n", j, i);
 
 	return (0);
 }
