@@ -6,7 +6,7 @@
 /*   By: lcarrizo <lcarrizo@student.42london.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:19:57 by lcarrizo          #+#    #+#             */
-/*   Updated: 2024/01/31 13:11:01 by lcarrizo          ###   ##london.com     */
+/*   Updated: 2024/02/01 21:52:43 by lcarrizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ static int	ft_check_format(char format, va_list args)
 		 return (ft_putnumber((long)va_arg(args, int)));
 	else if (format == 'u')
 		return (ft_putnumber((long)va_arg(args, unsigned int)));
-	else if (format == 'x')
-		return 0; //(ft_printhexa(va_arg(args, )));
-	else if (format == 'X')
-		return 0;
+	else if (format == 'x' || format == 'X')
+		return (ft_printhexa(va_arg(args, unsigned long), format));
 	else if (format == 'p')
-		return 0;
+		return (ft_printaddr(va_arg(args, void *), format));
 	else if (format == '%')
 		return (ft_putchar('%'));
 	else
@@ -65,20 +63,13 @@ int	main(void)
 {
 	int	i;
 	int	j;
-	// char	cha;
-	// char	*word;
-	int	n,m;
+	char *mem = malloc(sizeof(int) + 2);
 
 	i = 0;
 	j = 0;
-	// word = "How are you";
-	// cha = 'W';
-	n = 15;
-	if (n)
-		n = 0; 
-	m = 1;
-	i = ft_printf("F=  %x\n", m);
-	j =    printf("C=  %x\n", m);
+	mem = "HH";
+	i = ft_printf("F=  %p\n%s\n", mem, mem);
+	j =    printf("C=  %p\n%s\n", mem, mem);
 	printf("C print:%d\nFT print:%d\n", j, i);
 
 	return (0);
