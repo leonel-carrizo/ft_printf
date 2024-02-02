@@ -6,7 +6,7 @@
 /*   By: lcarrizo <lcarrizo@student.42london.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:19:57 by lcarrizo          #+#    #+#             */
-/*   Updated: 2024/02/02 12:49:52 by lcarrizo         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:43:25 by lcarrizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_check_format(char format, va_list args)
 	else if (format == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (format == 'd' || format == 'i')
-		 return (ft_putnumber((long)va_arg(args, int)));
+		return (ft_putnumber((long)va_arg(args, int)));
 	else if (format == 'u')
 		return (ft_putnumber((long)va_arg(args, unsigned int)));
 	else if (format == 'x' || format == 'X')
@@ -36,13 +36,11 @@ static int	ft_check_format(char format, va_list args)
 /* Produce output according to a format and write output to stdout, */
 int	ft_printf(const char *format, ...)
 {
-	// Handling variable arguments. (macros)
-	va_list args;
-	int	nprint;
+	va_list	args;
+	int		nprint;
 
 	nprint = 0;
 	va_start(args, format);
-	// handling differents types of formats specifiers.
 	while (*format)
 	{
 		if (*format == '%')
@@ -55,6 +53,5 @@ int	ft_printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	// return number of characters printed.
 	return (nprint);
 }

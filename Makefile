@@ -6,7 +6,7 @@
 #    By: lcarrizo <lcarrizo@student.42london.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 22:54:05 by lcarrizo          #+#    #+#              #
-#    Updated: 2024/02/02 10:56:05 by lcarrizo         ###   ########.fr        #
+#    Updated: 2024/02/02 18:08:36 by lcarrizo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,4 +44,3 @@ fclean:		clean
 re:		fclean all
 
 .PHONY:		all clean fclean re
-

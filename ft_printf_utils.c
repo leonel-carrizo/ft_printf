@@ -6,7 +6,7 @@
 /*   By: lcarrizo <lcarrizo@student.42london.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:26:41 by lcarrizo          #+#    #+#             */
-/*   Updated: 2024/02/02 12:58:19 by lcarrizo         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:07:33 by lcarrizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	ft_putstr(char *s)
 
 int	ft_putnumber(long nbr)
 {
+	char		c[10];
+	int			i;
+	int			count;
 	long long	n;
-	char	c[10];
-	int	i;
-	int	count;
 
 	n = nbr;
 	i = 0;
@@ -53,13 +53,13 @@ int	ft_putnumber(long nbr)
 	}
 	while (i > 0)
 		count += write(1, &c[--i], 1);
-	return(count);
+	return (count);
 }
 
 int	ft_printaddr(void *ptr, char format)
 {
-	int	len;
 	unsigned long long	n;
+	int					len;
 
 	if (ptr == NULL)
 		return (ft_putstr("(nil)"));
@@ -74,15 +74,15 @@ int	ft_printaddr(void *ptr, char format)
 
 int	ft_printhexa(unsigned long nbr, char format)
 {
-	int	n;
+	int			n;
+	int			rem;
+	int			i;
 	const char	*base;
-	char	hex[16];
-	int	i;
-	int	rem;
+	char		hex[16];
 
 	base = "0123456789abcdef";
 	if (format == 'X')
-		base ="0123456789ABCDEF";
+		base = "0123456789ABCDEF";
 	i = 0;
 	n = 0;
 	if ((unsigned long int)nbr < 9)
