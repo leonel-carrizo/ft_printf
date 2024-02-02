@@ -1,16 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_numbers.c                                   :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcarrizo <lcarrizo@student.42london.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 13:30:40 by lcarrizo          #+#    #+#             */
-/*   Updated: 2024/02/01 22:05:42 by lcarrizo         ###   ########.fr       */
+/*   Created: 2024/02/02 10:26:41 by lcarrizo          #+#    #+#             */
+/*   Updated: 2024/02/02 12:58:19 by lcarrizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
+
+int	ft_putchar(int c)
+{
+	return (write(1, &c, 1));
+}
+
+int	ft_putstr(char *s)
+{
+	int	len;
+
+	len = 0;
+	if (!s)
+		return (ft_putstr("(null)"));
+	while (*s)
+		len += (write(1, s++, 1));
+	return (len);
+}
 
 int	ft_putnumber(long nbr)
 {
@@ -39,6 +56,22 @@ int	ft_putnumber(long nbr)
 	return(count);
 }
 
+int	ft_printaddr(void *ptr, char format)
+{
+	int	len;
+	unsigned long long	n;
+
+	if (ptr == NULL)
+		return (ft_putstr("(nil)"));
+	len = 0;
+	len += ft_putstr("0x");
+	if (ptr == 0)
+		len += ft_putchar('0');
+	n = (unsigned long long)ptr;
+	len += ft_printhexa(n, format);
+	return (len);
+}
+
 int	ft_printhexa(unsigned long nbr, char format)
 {
 	int	n;
@@ -47,14 +80,14 @@ int	ft_printhexa(unsigned long nbr, char format)
 	int	i;
 	int	rem;
 
+	base = "0123456789abcdef";
 	if (format == 'X')
 		base ="0123456789ABCDEF";
-	base = "0123456789abcdef";
 	i = 0;
 	n = 0;
-	if ((long long int)nbr < 9)
+	if ((unsigned long int)nbr < 9)
 		return (ft_putchar(nbr + '0'));
-	while ((long long int)nbr)
+	while ((unsigned long int)nbr)
 	{
 		rem = nbr % 16;
 		hex[i++] = base[rem];

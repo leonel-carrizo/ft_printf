@@ -6,7 +6,7 @@
 #    By: lcarrizo <lcarrizo@student.42london.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 22:54:05 by lcarrizo          #+#    #+#              #
-#    Updated: 2024/02/02 09:43:51 by lcarrizo          ###   ##london.com      #
+#    Updated: 2024/02/02 10:56:05 by lcarrizo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 
 NAME		= libftprintf.a
 HEADER		= -I ./
-SRC		= ft_printf.c ./src/manage_numbers.c ./src/manage_strings.c
-OBJ		= $(src:.c=.o)
+SRC		= ft_printf.c ft_printf_utils.c
+OBJ		= $(SRC:.c=.o)
 
 #############################    VARIABLES   ##################################
 
@@ -28,14 +28,14 @@ AR		= ar rcs
 #############################    TARGETS    ##################################
 
 $(NAME):	$(OBJ)
-		$(CC) $(CFLAGS) $(OPT) $(SRC)
+		$(CC) $(CFLAGS) $(OPT) $(SRC) $(HEADER)
 		$(AR) $(NAME) $(OBJ)
 
 all:		$(NAME)
 
 clean:
 		$(RM) $(OBJ)
-		@echo: "** clean **"
+		@echo "** clean **"
 
 fclean:		clean
 		$(RM) $(NAME)

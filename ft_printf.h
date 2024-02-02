@@ -6,7 +6,7 @@
 /*   By: lcarrizo <lcarrizo@student.42london.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 12:17:10 by lcarrizo          #+#    #+#             */
-/*   Updated: 2024/02/01 21:42:44 by lcarrizo         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:44:38 by lcarrizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
-// delete before submit
-# include <stdio.h>
-
-int		ft_printf(const char *format, ...);
+int	ft_printf(const char *format, ...);
 int	ft_putstr(char *s);
 int	ft_putchar(int	c);
 int	ft_putnumber(long nbr);
