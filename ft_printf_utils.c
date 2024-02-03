@@ -6,7 +6,7 @@
 /*   By: lcarrizo <lcarrizo@student.42london.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:26:41 by lcarrizo          #+#    #+#             */
-/*   Updated: 2024/02/02 18:07:33 by lcarrizo         ###   ########.fr       */
+/*   Updated: 2024/02/03 13:49:21 by lcarrizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	ft_printhexa(unsigned long nbr, char format)
 		base = "0123456789ABCDEF";
 	i = 0;
 	n = 0;
-	if ((unsigned long int)nbr < 9)
+	if ((unsigned long int)nbr <= 9)
 		return (ft_putchar(nbr + '0'));
 	while ((unsigned long int)nbr)
 	{
